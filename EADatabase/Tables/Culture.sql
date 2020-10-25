@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Culture]
+(
+	[Code] VARCHAR(10) NOT NULL PRIMARY KEY,
+	[Name] NVARCHAR(20) NOT NULL
+)
