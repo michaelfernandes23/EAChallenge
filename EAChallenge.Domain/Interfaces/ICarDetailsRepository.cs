@@ -9,6 +9,6 @@ namespace EAChallenge.Domain.Interfaces
 {
     public interface ICarDetailsRepository
     {
-        Task<List<CarDetailsDTO>> GetAll(SearchParameters searchParameters);
+        Task<List<CarDetailsDTO>> GetAllCarsWithAuctionDetails(SearchParameters searchParameters);
     }
 }

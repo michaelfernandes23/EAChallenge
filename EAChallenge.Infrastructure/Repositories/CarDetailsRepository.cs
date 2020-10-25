@@ -20,14 +20,14 @@ namespace EAChallenge.Infrastructure.Repositories
             _dbContext = eAChallengeDBContext;
         }
 
-        public async Task<List<CarDetailsDTO>> GetAll(SearchParameters searchParameters)
+        public async Task<List<CarDetailsDTO>> GetAllCarsWithAuctionDetails(SearchParameters searchParameters)
         {
             try
             {
                 var count = await _dbContext.CarDetails.CountAsync();
-                var PageSize = searchParameters.PageSize;
+                var PageSize = searchParameters.PageSize == 0 ? searchParameters.PageSize : 10;
                 var TotalPages = (int)Math.Ceiling(count / (double)PageSize);
-                var CurrentPage = searchParameters.PageNumber;
+                var CurrentPage = searchParameters.PageNumber == 0 ? searchParameters.PageNumber : 1;
                 var previousPage = CurrentPage > 1 ? "Yes" : "No";
                 var nextPage = CurrentPage < TotalPages ? "Yes" : "No";
                 var itemStart = (searchParameters.PageNumber - 1) * PageSize;
