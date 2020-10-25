@@ -18,7 +18,7 @@ namespace EAChallenge.Services
 
         public async Task<List<CarDetailsDTO>> GetCarDetails(SearchParameters searchParameters)
         {
-            return await _carDetailsRepository.GetAll(searchParameters);
+            return await _carDetailsRepository.GetAllCarsWithAuctionDetails(searchParameters);
         }
     }
 }
